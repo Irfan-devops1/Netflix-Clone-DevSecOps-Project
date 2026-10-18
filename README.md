@@ -42,7 +42,7 @@ A Netflix Clone project demonstrating end-to-end DevSecOps practices using AWS E
 </p>
 
 <p align="center">
-  <img src="./screenshots/Buildsucess3.png" alt="Jenkins Pipeline Build Stages" width="100%">
+  <img src="./screenshots/Buildsuccess03.png" alt="Jenkins Pipeline Build Stages" width="100%">
 </p>
 
 <p align="center">
