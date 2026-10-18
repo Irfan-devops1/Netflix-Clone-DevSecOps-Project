@@ -41,12 +41,11 @@ pipeline{
         stage('OWASP FS SCAN') {
             steps {
                 dependencyCheck(
-            additionalArguments: '--scan ./ --exclude "**/node_modules/**" --disableYarnAudit --disableNodeAudit --disableOssIndex',
-            odcInstallation: 'DP-Check'
-        )
-        dependencyCheckPublisher(
-            pattern: '**/dependency-check-report.xml'
-             )
+                    additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit --disableOssIndex',
+                    odcInstallation: 'DP-Check',
+                    nvdCredentialsId: 'nvd-api-key'
+                )
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
         stage('TRIVY FS SCAN') {
@@ -54,7 +53,7 @@ pipeline{
                 sh "trivy fs . > trivyfs.txt"
             }
         }
-       stage("Docker Build & Push"){
+        stage("Docker Build & Push"){
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
@@ -65,29 +64,15 @@ pipeline{
                 }
             }
         }
-        stage("TRIVY") {
-    steps {
-        sh '''
-            trivy image \
-              --image-src remote \
-              --cache-backend memory \
-              irfanahmadbhat/netflix:latest \
-              > trivyimage.txt
-        '''
+        stage("TRIVY"){
+            steps{
+                sh "trivy image irfanahmadbhat/netflix:latest > trivyimage.txt" 
+            }
+        }
+        stage('Deploy to container'){
+            steps{
+                sh 'docker run -d --name netflix -p 8081:80 irfanahmadbhat/netflix:latest'
+            }
+        }
     }
 }
-
-stage('Deploy to container') {
-    steps {
-        sh '''
-            docker rm -f netflix 2>/dev/null || true
-            docker run -d \
-              --name netflix \
-              -p 8081:80 \
-              irfanahmadbhat/netflix:latest
-        '''
-    }
-}
-    }
-}
-
