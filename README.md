@@ -337,7 +337,11 @@ pipeline{
         }
         stage('OWASP FS SCAN') {
             steps {
-                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                dependencyCheck(
+                    additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit --disableOssIndex',
+                    odcInstallation: 'DP-Check',
+                    nvdCredentialsId: 'nvd-api-key'
+                )
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
@@ -350,7 +354,7 @@ pipeline{
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
-                       sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t netflix ."
+                       sh "docker build --build-arg TMDB_V3_API_KEY=fd3eff1d6830dfe7e1a746fbe2b05035 -t netflix ."
                        sh "docker tag netflix irfanahmadbhat/netflix:latest "
                        sh "docker push irfanahmadbhat/netflix:latest "
                     }
@@ -369,6 +373,7 @@ pipeline{
         }
     }
 }
+
 
 
 ```
