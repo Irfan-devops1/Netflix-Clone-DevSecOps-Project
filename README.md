@@ -366,7 +366,7 @@ pipeline{
         stage('OWASP FS SCAN') {
             steps {
                 dependencyCheck(
-                    additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit --disableOssIndex',
+                    additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit',
                     odcInstallation: 'DP-Check',
                     nvdCredentialsId: 'nvd-api-key'
                 )
