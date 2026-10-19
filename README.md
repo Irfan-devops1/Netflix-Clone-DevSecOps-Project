@@ -52,7 +52,7 @@ A Netflix Clone project demonstrating end-to-end DevSecOps practices using AWS E
 <p align="center">
 </p>
 
-# NVD 
+# Create NVD API Key to retrieve vulnerability information from the National Vulnerability Database (NVD).
 ![NVD API Key Configuration](screenshots/NVDAPIKEY.png)
 
 ## Docker Image Successfully Pushed to Docker Hub
