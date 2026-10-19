@@ -416,6 +416,7 @@ sudo usermod -aG docker jenkins
 
 sudo systemctl restart jenkins
 ```
+# Note:- Java and NodeJs Versions can be upgraded accordingly and then update in Pipeline too. I have added that pipeline in txt file as well
 
 **Phase 4: Monitoring**
 
