@@ -7,6 +7,10 @@ A Netflix Clone project demonstrating end-to-end DevSecOps practices using AWS E
   <img src="./screenshots/Project Architecture.png" alt="Netflix Clone DevSecOps Project Architecture" width="100%">
 </p>
 
+## Netflix App Live on Kubernetes Cluster
+
+![Netflix App Running on Kubernetes](screenshots/K8s%20Argocd%20monitoring/Netfix%20Running%20on%20Kubernetes.png)
+
 ## Live Application
 
 <p align="center">
@@ -56,6 +60,27 @@ A Netflix Clone project demonstrating end-to-end DevSecOps practices using AWS E
 
 <p align="center">
 </p>
+
+## Argo CD Netflix Deployment
+
+The Netflix application is deployed to Kubernetes using Argo CD GitOps.
+
+![Argo CD Netflix Deployment](screenshots/K8s%20Argocd%20monitoring/Agrocd%20netflix%20Deployment.png)
+
+## Kubernetes Pods and Services
+
+![All Pods and Services](screenshots/K8s%20Argocd%20monitoring/All%20pods%20and%20services.png)
+
+## Monitoring Through Grafana
+
+![Monitoring Through Grafana](screenshots/K8s%20Argocd%20monitoring/Monitoring%20through%20Grafana.png)
+
+![Grafana Dashboard](screenshots/K8s%20Argocd%20monitoring/Grafana%202.png)
+
+## Kubernetes Scaling and Grafana Monitoring
+
+![Pods Increased in Deployment File and Monitoring in Grafana](screenshots/K8s%20Argocd%20monitoring/Pods%20increased%20in%20Deployment%20file%20in%20github%20and%20monitoring%20in%20grafana.png)
+
 
 # Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 
