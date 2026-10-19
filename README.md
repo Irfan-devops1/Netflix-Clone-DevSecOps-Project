@@ -52,6 +52,9 @@ A Netflix Clone project demonstrating end-to-end DevSecOps practices using AWS E
 <p align="center">
 </p>
 
+# NVD 
+![NVD API Key Configuration](screenshots/NVDAPIKEY.png)
+
 ## Docker Image Successfully Pushed to Docker Hub
 
 <p align="center">
